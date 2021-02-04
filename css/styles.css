@@ -62,7 +62,8 @@ a {
   text-decoration: none;
 }
 
-.img {
+.img,
+.images {
   display: block;
   max-width: 100%;
   height: auto;
@@ -85,10 +86,8 @@ input[type="checkbox"].visually-hidden {
 
 .container {
   width: 1200px;
-  padding-left: 15px;
-  padding-right: 15px;
-  margin-left: auto;
-  margin-right: auto;
+  padding: 0 15px;
+  margin: 0 auto;
 }
 
 .page-header .container {
@@ -135,19 +134,20 @@ input[type="checkbox"].visually-hidden {
 
 .main-nav {
   display: flex;
-  align-items: center;
+  height: 80px;
+  text-align: center;
 }
 
 /*Adress*/
 .contacts {
-  display: flex;
-  align-items: center;
   margin-left: auto;
+  display: flex;
+  text-align: center;
 }
 
 .contacts-item {
   display: flex;
-  align-items: center;
+  text-align: center;
 }
 
 .contacts-item:not(:last-child) {
@@ -178,35 +178,32 @@ input[type="checkbox"].visually-hidden {
 }
 
 .header-icon {
-  display: block;
-  width: 16px;
-  height: 12px;
   fill: currentColor;
-  justify-content: center;
-  align-items: center;
+  text-align: center;
   margin-right: 10px;
   background-size: contain;
 }
 
 .mail-link {
-  text-align: center;
-  justify-content: center;
-  width: 161px;
-  height: 16px;
+  display: block;
+  height: 100%;
   cursor: pointer;
+  text-align: center;
 }
 
 .link-tel {
-  text-align: center;
-  justify-content: center;
-  height: 16px;
+  display: block;
+  height: 100%;
   cursor: pointer;
+  text-align: center;
 }
 
 /*Site nav*/
 .site-nav {
   display: flex;
-  align-items: center;
+  width: 294px;
+  height: 16px;
+  text-align: center;
 }
 
 .site-nav-item:not(:last-child) {
@@ -234,13 +231,6 @@ input[type="checkbox"].visually-hidden {
 .link,
 .link-current {
   display: block;
-  padding-top: 32px;
-  padding-bottom: 32px;
-}
-
-.mail-link,
-.link-tel {
-  display: flex;
   padding-top: 32px;
   padding-bottom: 32px;
 }
@@ -299,7 +289,7 @@ input[type="checkbox"].visually-hidden {
   padding: 10px 30px;
   min-width: 200px;
 
-  offset: 0px, 4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px, 4px rgba(0, 0, 0, 0.15);
 }
 
 /*advanteges*/
@@ -323,7 +313,6 @@ input[type="checkbox"].visually-hidden {
   margin-top: 0;
 }
 
-
 .title-description {
   max-width: 270px;
   height: 75px;
@@ -334,22 +323,9 @@ input[type="checkbox"].visually-hidden {
   line-height: 1.7;
 }
 
-
-/*.section-icon-thumb {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: var(--light-background);
-  width: 270px;
-  height: 120px;*/
-}
-
 .section-title-li:not(:last-child) {
   width: 270px;
   margin-right: 30px;
-}
-.title-advant::before:not(:last-child) {
-   margin-right: 30px;
 }
 
 .section-title-list {
@@ -379,7 +355,7 @@ input[type="checkbox"].visually-hidden {
 }
 .icon-astronavt::before {
   background-image: url(../images/astronaut.svg);
-} 
+}
 
 /* CAPABILITIES section*/
 .capabilities-section {
@@ -432,29 +408,17 @@ input[type="checkbox"].visually-hidden {
 .team-flex-item {
   text-align: center;
   width: 270px;
-  border-bottom-right-radius: 4px;
-  border-bottom-left-radius: 4px;
   border: 1px solid #ffffff;
   background-color: var(--primary-lite-color);
-
-  /* SHADOWS
-Drop-shadow
-Radius: 1px
-Offset: 0px, 2px
-rgba(0, 0, 0, 0.2)
-Effect: Drop shadow
-Radius: 1px
-Offset: 0px, 1px
-rgba(0, 0, 0, 0.14)
-Effect: Drop shadow
-Radius: 3px
-Offset: 0px, 1px
-rgba(0, 0, 0, 0.12) */
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25), 0px 1px 3px rgba(0, 0, 0, 0.12),
+    0px 1px 1px rgba(0, 0, 0, 0.14);
+  border-radius: 0px 0px 4px 4px;
 }
 
 .team-flex-item:not(:last-child) {
   margin-right: 30px;
 }
+
 .team-card {
   width: 270px;
   height: 168px;
@@ -496,8 +460,8 @@ rgba(0, 0, 0, 0.12) */
 }
 
 .social-list-item {
- width: 44px;
- height: 44px; 
+  width: 44px;
+  height: 44px;
 }
 
 .social-list-link {
@@ -508,7 +472,6 @@ rgba(0, 0, 0, 0.12) */
   height: 100%;
   background: #ffffff;
   border-radius: 50%;
-  
 }
 
 .social-list-icon {
@@ -594,7 +557,7 @@ rgba(0, 0, 0, 0.12) */
   padding-bottom: 60px;
 }
 .adress-item {
-  justify-content: baseline;
+  align-items: baseline;
 }
 
 .footer-logo {
@@ -649,7 +612,7 @@ rgba(0, 0, 0, 0.12) */
   font-weight: 700;
   font-size: 14px;
   line-height: 1.14;
-  letter-spacing: 3%;
+  letter-spacing: 0.03em;
   color: #ffffff;
   text-transform: uppercase;
 }
@@ -670,11 +633,12 @@ rgba(0, 0, 0, 0.12) */
 .footer-list-link:hover .footer-list-icon,
 .footer-list-link:focus .footer-list-icon {
   fill: #ffffff;
+  cursor: pointer;
 }
 
 .footer-list-item {
- width: 44px;
- height: 44px; 
+  width: 44px;
+  height: 44px;
 }
 
 .footer-list-link {
@@ -696,7 +660,6 @@ rgba(0, 0, 0, 0.12) */
 .footer {
   display: flex;
   align-items: baseline;
-  justify-content: baseline;
 }
 
 .footer-contacts:not(:last-child) {
@@ -735,19 +698,18 @@ rgba(0, 0, 0, 0.12) */
   border-radius: 4px;
   padding: 6px 22px;
   white-space: nowrap;
+  border-color: transparent;
   border: none;
 }
 
+.portfolio-button.active,
 .portfolio-button:hover,
-.portfolio-butto:focus {
+.portfolio-button:focus {
   color: var(--primary-lite-color);
   background-color: var(--accent-color);
-  border: none;
-}
-
-.flex-element:hover {
-  border: 1px solid #eeeeee;
-  box-shadow: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  border: transparent;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .flex-element-link {
@@ -761,6 +723,7 @@ rgba(0, 0, 0, 0.12) */
 .flex-element-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  border: none;
 }
 
 .portfolio-img-flex {
