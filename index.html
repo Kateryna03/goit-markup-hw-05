@@ -66,7 +66,17 @@
         <div class="container">
           <div class="hero-title">
             <h1 class="title">Эффективные решения для вашего бизнеса</h1>
-            <button type="button" class="hero-button">Заказать услугу</button>
+            <button type="button" class="hero-button" data-modal-open>Заказать услугу</button>
+            <div class="backdrop is-hidden" data-modal>
+              <div class="modal">
+                <div class="close"
+               data-modal-close> 
+                <svg class="close-icon">
+                        <use href="./images/sprite.svg#icon-close-1"></use>
+                      </svg>
+                    </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -114,12 +124,15 @@
           <h2 class="section-title">Чем мы занимаемся</h2>
           <ul class="capabilities-flex">
             <li class="capabilities-flex-item">
-              <img
+             <img
                 class="images"
                 src="./images/photo1.jpg/box-1.jpg"
                 alt="программирование"
                 width="370"
               />
+              <div class="box-thumb">
+              <p class="box-text">Десктопные приложения</p>
+              </div>
             </li>
             <li class="capabilities-flex-item">
               <img
@@ -128,6 +141,9 @@
                 alt="дизайн"
                 width="370"
               />
+              <div class="box-thumb">
+              <p class="box-text">Мобильные приложения</p>
+              </div>
             </li>
             <li class="capabilities-flex-item">
               <img
@@ -136,6 +152,9 @@
                 alt="графика"
                 width="370"
               />
+              <div class="box-thumb">
+              <p class="box-text">Дизайнерские решения</p>
+              </div>
             </li>
           </ul>
         </div>
@@ -430,5 +449,8 @@
         </div>
       </div>
     </footer>
+    <script src="./js/modal.js">
+    </script>
+</body>
   </body>
 </html>

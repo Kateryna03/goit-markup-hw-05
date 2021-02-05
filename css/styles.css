@@ -32,6 +32,7 @@ footer tel email color: rgba(255, 255, 255, 0.6);
 */
 
 body {
+  /*при ФИСКИРОВАННОМ ХЭДЕРЕpadding-top: 80px;*/
   background-color: var(--primary-lite-color);
   color: var(--primary-text-color);
   font-size: 14px;
@@ -106,6 +107,12 @@ input[type="checkbox"].visually-hidden {
 }
 
 .page-header {
+  /*position: fixed; ДЕЛАЕТ ФИКСИРОВАН ХЭДЕР*/
+  min-height: 80px;
+  width: 100%;
+  top: 0;
+  left: 0;
+
   background-color: var(--primary-lite-color);
   border-bottom: 1px solid #ececec;
 }
@@ -173,13 +180,34 @@ input[type="checkbox"].visually-hidden {
   cursor: pointer;
 }
 
+.link-current {
+  display: block;
+  text-decoration: none;
+  color: currentColor;
+  position: relative;
+}
+
+.link-current::after {
+  content: "";
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 4px;
+  left: 0;
+  bottom: 0;
+
+  background: #2196f3;
+  border-radius: 2px;
+}
+
 .contacts-item .mail-link {
   margin-left: auto;
 }
 
 .header-icon {
   fill: currentColor;
-  text-align: center;
+  align-items: center;
+  justify-content: center;
   margin-right: 10px;
   background-size: contain;
 }
@@ -189,6 +217,8 @@ input[type="checkbox"].visually-hidden {
   height: 100%;
   cursor: pointer;
   text-align: center;
+  justify-content: center;
+  align-items: center;
 }
 
 .link-tel {
@@ -202,7 +232,6 @@ input[type="checkbox"].visually-hidden {
 .site-nav {
   display: flex;
   width: 294px;
-  height: 16px;
   text-align: center;
 }
 
@@ -233,6 +262,7 @@ input[type="checkbox"].visually-hidden {
   display: block;
   padding-top: 32px;
   padding-bottom: 32px;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /*hero*/
@@ -284,12 +314,73 @@ input[type="checkbox"].visually-hidden {
   line-height: 1.9;
   letter-spacing: 0.06em;
 
-  border: none;
+  border: transparent;
   border-radius: 4px;
   padding: 10px 30px;
   min-width: 200px;
+  cursor: pointer;
 
   box-shadow: 0px, 4px rgba(0, 0, 0, 0.15);
+  transition: background-color 2000ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hero-button:hover,
+.hero-button:focus {
+  background-color: #2196f3;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.15);
+  border-radius: 4px;
+}
+
+/*МОДАЛЬНОЕ ОКНО*/
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 1024px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin: 0 auto;
+}
+
+.backdrop.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+
+  min-width: 528px;
+  min-height: 581px;
+
+  border-radius: 4px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  background-color: #ffffff;
+}
+
+.close {
+  position: absolute;
+  display: flex;
+  top: 8px;
+  right: 8px;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.close-icon {
+  content: "";
+  width: 11px;
+  height: 11px;
+  fill: #000000;
+  background-image: url(../images/sprite.svg#icon-close-1);
 }
 
 /*advanteges*/
@@ -382,10 +473,36 @@ input[type="checkbox"].visually-hidden {
 }
 .capabilities-flex-item {
   width: 370px;
+  position: relative;
 }
 
 .capabilities-flex-item:not(:last-child) {
   margin-right: 30px;
+}
+
+.box-thumb {
+  position: absolute;
+  bottom: 0;
+  width: 370px;
+  height: 70px;
+  background: rgba(47, 48, 58, 0.8);
+}
+
+.box-text {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  text-align: center;
+  align-items: center;
+
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 27px 82px;
+  margin: 0;
+  color: #ffffff;
 }
 
 /*Team*/
@@ -472,12 +589,14 @@ input[type="checkbox"].visually-hidden {
   height: 100%;
   background: #ffffff;
   border-radius: 50%;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .social-list-icon {
   width: 20px;
   height: 20px;
   fill: #afb1b8;
+  transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* REGULAR CUSTOMERS*/
@@ -514,6 +633,12 @@ input[type="checkbox"].visually-hidden {
   display: flex;
   text-align: center;
   justify-content: space-between;
+}
+
+.customer-list-icon,
+.customer-list-link {
+  transition: border-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .customer-list-link:hover,
@@ -625,6 +750,12 @@ input[type="checkbox"].visually-hidden {
   height: 44px;
 }
 
+.footer-list-link,
+.footer-list-icon {
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
 .footer-list-link:hover,
 .footer-list-link:focus {
   background-color: #2196f3;
@@ -667,6 +798,44 @@ input[type="checkbox"].visually-hidden {
 }
 
 /*portfolio стили */
+.portfolio-cards-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.portfolio-overlay {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+
+  align-items: top;
+  text-align: left;
+  justify-content: center;
+
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 1.56;
+  letter-spacing: 0.03em;
+  color: #ffffff;
+  padding: 63px 24px;
+  background-color: rgba(33, 150, 243, 0.9);
+  box-shadow: 0px, 4px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+  overflow: hidden;
+  transform: translateY(100%);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.flex-element-link:hover .portfolio-overlay,
+.flex-element-link:focus .portfolio-overlay {
+  transform: translateY(0);
+  box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
+    1px 4px 6px rgba(0, 0, 0, 0.16);
+}
 .section {
   padding-top: 94px;
   padding-bottom: 94px;
@@ -700,6 +869,8 @@ input[type="checkbox"].visually-hidden {
   white-space: nowrap;
   border-color: transparent;
   border: none;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-button.active,
@@ -713,17 +884,17 @@ input[type="checkbox"].visually-hidden {
 }
 
 .flex-element-link {
-  display: block;
+  display: inline-block;
   border-top-right-radius: 5px;
   border-top-left-radius: 5px;
-  overflow: hidden;
+  cursor: pointer;
 }
 
 .flex-element-link:hover,
 .flex-element-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
-  border: none;
+  border: transparent;
 }
 
 .portfolio-img-flex {
