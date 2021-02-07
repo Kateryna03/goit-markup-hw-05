@@ -198,7 +198,7 @@ input[type="checkbox"].visually-hidden {
   width: 100%;
   height: 4px;
   left: 0;
-  bottom: 0;
+  bottom: -1px;
 
   background: #2196f3;
   border-radius: 2px;
@@ -824,6 +824,7 @@ input[type="checkbox"].visually-hidden {
   height: 100%;
   top: 0;
   left: 0;
+  /*margin-top: 1px; или 101%*/
 
   align-items: top;
   text-align: left;
